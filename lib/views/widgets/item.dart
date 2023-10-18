@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:my_wallet_app/models/expense_model.dart';
 
 import '../../constants.dart';
 
-class Item extends StatelessWidget {
-  const Item({super.key, required this.image});
-  final String image;
+class ExpenseItem extends StatelessWidget {
+  const ExpenseItem({super.key, required this.expense});
+  final ExpenseModel expense;
 
   @override
   Widget build(BuildContext context) {
@@ -16,29 +17,29 @@ class Item extends StatelessWidget {
         leading: Padding(
           padding: const EdgeInsets.only(right: 8),
           child: Image.asset(
-            image,
+            expense.category.image,
             width: 42,
           ),
         ),
-        title: const Text(
-          'Fast Food',
-          style: TextStyle(
+        title: Text(
+          expense.category.title,
+          style: const TextStyle(
             fontSize: 16,
             color: Colors.black,
             fontWeight: FontWeight.w500,
           ),
         ),
-        subtitle: const Text(
-          '12 June , 2020',
-          style: TextStyle(
+        subtitle: Text(
+          expense.date,
+          style: const TextStyle(
             fontSize: 11,
             color: kSubTitle,
             fontWeight: FontWeight.w500,
           ),
         ),
-        trailing: const Text(
-          '48 DZD',
-          style: TextStyle(
+        trailing: Text(
+          '${expense.price % 1 == 0 ? expense.price.toInt() : expense.price} DZD',
+          style: const TextStyle(
             fontSize: 15,
             color: kThemeColor,
             fontWeight: FontWeight.w700,

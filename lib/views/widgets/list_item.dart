@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'item.dart';
-
 class ListItem extends StatelessWidget {
-  const ListItem({super.key});
+  const ListItem({super.key, required this.itemBuilder});
+  final Widget? Function(BuildContext, int) itemBuilder;
 
   @override
   Widget build(BuildContext context) {
@@ -21,23 +20,11 @@ class ListItem extends StatelessWidget {
         color: Colors.white,
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 12),
-          child: ListView(
+          child: ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            children: const [
-              Item(
-                image: 'assets/images/Icons/icons8-fast-food-96.png',
-              ),
-              Item(
-                image: 'assets/images/Icons/icons8-vêtements-96.png',
-              ),
-              Item(
-                image: 'assets/images/Icons/icons8-book-shelf-96.png',
-              ),
-              Item(
-                image: 'assets/images/Icons/icons8-book-shelf-96.png',
-              ),
-            ],
+            itemCount: 4,
+            itemBuilder: itemBuilder,
           ),
         ),
       ),

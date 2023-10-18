@@ -5,8 +5,17 @@ import '../../models/weekday_model.dart';
 import 'custom_icon_button.dart';
 import 'icon_button_list_view.dart';
 
-class DisplayIconButtonListView extends StatelessWidget {
+class DisplayIconButtonListView extends StatefulWidget {
   const DisplayIconButtonListView({super.key});
+
+  @override
+  State<DisplayIconButtonListView> createState() =>
+      _DisplayIconButtonListViewState();
+}
+
+class _DisplayIconButtonListViewState extends State<DisplayIconButtonListView> {
+  final List<int> days = ListDayOfWeek.getDayOfWeek();
+  int currentIndex = ListDayOfWeek.getDayOfWeek().indexOf(DateTime.now().day);
 
   @override
   Widget build(BuildContext context) {
@@ -19,19 +28,25 @@ class DisplayIconButtonListView extends StatelessWidget {
           IconButtonListView(itemBuilder: (context, index) {
             List<WeekDayModel> weekDays = WeekDayModel.days;
             return GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  currentIndex = index;
+                  setState(() {});
+                },
                 child: CustomWeekDayIconButton(
-                  isSelected: DateTime.now().weekday == weekDays[index].value,
+                  isSelected:
+                      weekDays[currentIndex].value == weekDays[index].value,
                   day: WeekDayModel.days[index],
                 ));
           }),
           const SizedBox(height: 16),
           IconButtonListView(itemBuilder: (context, index) {
-            final List<int> days = ListDayOfWeek.getDayOfWeek();
             return GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  currentIndex = index;
+                  setState(() {});
+                },
                 child: CustomDayIconButton(
-                  isSelected: DateTime.now().day == days[index],
+                  isSelected: days[currentIndex] == days[index],
                   day: days[index],
                 ));
           }),
