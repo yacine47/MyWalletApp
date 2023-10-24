@@ -40,7 +40,7 @@ class AddExpensesListFiels extends StatelessWidget {
           CustomTextField(
             hint: 'Describtion',
             maxLines: 5,
-          )
+          ),
         ],
       ),
     );
