@@ -22,7 +22,6 @@ class CustomButton extends StatelessWidget {
           child: InkWell(
             borderRadius: BorderRadius.circular(8),
             onTap: onTap,
-            // overlayColor: MaterialStateProperty.all(Colors.white),
             highlightColor: kThemeColor.withOpacity(.2),
             splashColor: kThemeColor.withOpacity(0.55),
             // hoverColor: Colors.white,

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'add_expenses_app_bar.dart';
 import 'add_expenses_list_fields.dart';
 import 'card_list_item.dart';
-import 'category_list_view.dart';
+import 'category_grid_view.dart';
 import 'custom_button_add_expenses.dart';
 import 'display_icon_button_list_view.dart';
 
@@ -24,7 +24,7 @@ class AddExpensesViewBody extends StatelessWidget {
             const CardListItem(
               child: AddExpensesListFiels(),
             ),
-            const CardListItem(child: CategoryListView()),
+            const CardListItem(child: CategoryGridView()),
             const SizedBox(height: 16),
             CustomButtonAddExpenses(
               title: 'Done',

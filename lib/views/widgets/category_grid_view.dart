@@ -3,14 +3,14 @@ import 'package:my_wallet_app/constants.dart';
 
 import 'category_item.dart';
 
-class CategoryListView extends StatefulWidget {
-  const CategoryListView({super.key});
+class CategoryGridView extends StatefulWidget {
+  const CategoryGridView({super.key});
 
   @override
-  State<CategoryListView> createState() => _CategoryListViewState();
+  State<CategoryGridView> createState() => _CategoryGridViewState();
 }
 
-class _CategoryListViewState extends State<CategoryListView> {
+class _CategoryGridViewState extends State<CategoryGridView> {
   int? currentIndex;
 
   @override
