@@ -10,7 +10,7 @@ class IconButtonListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 36,
+      height: 46,
       // width: MediaQuery.of(context).size.width,
       child: ListView.builder(
         shrinkWrap: true,

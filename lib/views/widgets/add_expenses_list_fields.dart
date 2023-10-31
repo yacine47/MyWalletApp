@@ -39,7 +39,7 @@ class AddExpensesListFiels extends StatelessWidget {
           SizedBox(height: 14),
           CustomTextField(
             hint: 'Describtion',
-            maxLines: 5,
+            maxLines: 2,
           ),
         ],
       ),

@@ -4,14 +4,19 @@ import '../../constants.dart';
 import 'custom_title.dart';
 
 class CustomTitleTime extends StatelessWidget {
-  const CustomTitleTime({super.key, required this.title, required this.date});
+  const CustomTitleTime(
+      {super.key,
+      required this.title,
+      required this.date,
+      this.space = MainAxisAlignment.spaceBetween});
   final String title;
   final String date;
+  final MainAxisAlignment space;
 
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: space,
       children: [
         CustomTitle(title: title),
         Text(

@@ -20,7 +20,7 @@ class _DisplayIconButtonListViewState extends State<DisplayIconButtonListView> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 6),
+      padding: const EdgeInsets.symmetric(vertical: 4),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -28,30 +28,48 @@ class _DisplayIconButtonListViewState extends State<DisplayIconButtonListView> {
           IconButtonListView(itemBuilder: (context, index) {
             List<WeekDayModel> weekDays = WeekDayModel.days;
             return GestureDetector(
-                onTap: () {
-                  currentIndex = index;
-                  setState(() {});
-                },
-                child: CustomWeekDayIconButton(
-                  isSelected:
-                      weekDays[currentIndex].value == weekDays[index].value,
-                  day: WeekDayModel.days[index],
-                ));
-          }),
-          const SizedBox(height: 16),
-          IconButtonListView(itemBuilder: (context, index) {
-            return GestureDetector(
-                onTap: () {
-                  currentIndex = index;
-                  setState(() {});
-                },
-                child: CustomDayIconButton(
-                  isSelected: days[currentIndex] == days[index],
-                  day: days[index],
-                ));
+              onTap: () {
+                currentIndex = index;
+                setState(() {});
+              },
+              child: CustomDateIconButton(
+                day: days[index],
+                isSelected: currentIndex == index,
+                weekday: weekDays[index],
+              ),
+            );
           }),
         ],
       ),
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+// child: CustomWeekDayIconButton(
+              //   isSelected:
+              //       weekDays[currentIndex].value == weekDays[index].value,
+              //   day: WeekDayModel.days[index],
+              // ),
+
+
+
+               // IconButtonListView(itemBuilder: (context, index) {
+          //   return GestureDetector(
+          //       onTap: () {
+          //         currentIndex = index;
+          //         setState(() {});
+          //       },
+          //       child: CustomDayIconButton(
+          //         isSelected: days[currentIndex] == days[index],
+          //         day: days[index],
+          //       ));
+          // }),

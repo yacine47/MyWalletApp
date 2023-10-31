@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class AppBarStatistics extends StatelessWidget {
-  const AppBarStatistics({super.key});
+class CustomAppBarViews extends StatelessWidget {
+  const CustomAppBarViews({super.key, required this.title});
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -13,18 +14,17 @@ class AppBarStatistics extends StatelessWidget {
           onTap: () {
             Navigator.pop(context);
           },
-          child: const Icon(FontAwesomeIcons.arrowLeft),
+          child: const Icon(FontAwesomeIcons.arrowLeft, color: Colors.white),
         ),
-        const Text(
-          'STATISTICS',
-          style: TextStyle(
+        Text(
+          title.toUpperCase(),
+          style: const TextStyle(
             fontSize: 21,
+            color: Colors.white,
             fontWeight: FontWeight.w600,
           ),
         ),
-        const Text(
-          '',
-        ),
+        const Padding(padding: EdgeInsets.only(left: 8))
       ],
     );
   }

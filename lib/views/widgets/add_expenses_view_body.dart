@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_wallet_app/views/widgets/circle_background.dart';
 
-import 'add_expenses_app_bar.dart';
+import 'custom_app_bar_views.dart';
 import 'add_expenses_list_fields.dart';
 import 'card_list_item.dart';
 import 'category_grid_view.dart';
@@ -12,27 +13,27 @@ class AddExpensesViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 56),
-            const AddExpensesAppBar(),
-            const SizedBox(height: 16),
-            const CardListItem(child: DisplayIconButtonListView()),
-            const CardListItem(
-              child: AddExpensesListFiels(),
-            ),
-            const CardListItem(child: CategoryGridView()),
-            const SizedBox(height: 16),
-            CustomButtonAddExpenses(
-              title: 'Done',
-              onTap: () {},
-            ),
-            const SizedBox(height: 26),
-          ],
-        ),
+    return CircleBackground(
+      child: Column(
+        children: [
+          const SizedBox(height: 56),
+          const CustomAppBarViews(
+            title: 'add expenses',
+          ),
+          const SizedBox(height: 6),
+          const CardListItem(
+              isTransparent: true, child: DisplayIconButtonListView()),
+          const CardListItem(
+            child: AddExpensesListFiels(),
+          ),
+          const CardListItem(child: CategoryGridView()),
+          const SizedBox(height: 16),
+          CustomButtonAddExpenses(
+            title: 'Done',
+            onTap: () {},
+          ),
+          const SizedBox(height: 26),
+        ],
       ),
     );
   }
