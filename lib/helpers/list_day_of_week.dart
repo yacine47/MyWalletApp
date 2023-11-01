@@ -18,6 +18,9 @@ class ListDayOfWeek {
     int day = DateTime.now().day;
 
     for (int i = 0; i < 7; i++) {
+      if (day - dayWeek + i == 32) {
+        day = 0;
+      }
       days.add(day - dayWeek + i);
     }
     return days;

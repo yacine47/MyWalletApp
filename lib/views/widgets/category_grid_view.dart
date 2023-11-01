@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_wallet_app/constants.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_wallet_app/cubits/add_expense/add_expense_cubit.dart';
 
+import '../../models/expense_model.dart';
 import 'category_item.dart';
 
 class CategoryGridView extends StatefulWidget {
@@ -11,7 +13,7 @@ class CategoryGridView extends StatefulWidget {
 }
 
 class _CategoryGridViewState extends State<CategoryGridView> {
-  int? currentIndex;
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +35,8 @@ class _CategoryGridViewState extends State<CategoryGridView> {
             onTap: () {
               currentIndex = index;
               setState(() {});
+              BlocProvider.of<AddExpenseCubit>(context).category =
+                  categories[currentIndex];
             },
             child: CategoryItem(
               isSelected: currentIndex == index,
