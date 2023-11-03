@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_wallet_app/cubits/add_expense/add_expense_cubit.dart';
 
+import '../../models/category_model.dart';
 import '../../models/expense_model.dart';
 import 'category_item.dart';
 

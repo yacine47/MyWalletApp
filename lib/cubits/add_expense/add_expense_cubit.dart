@@ -5,6 +5,8 @@ import 'package:my_wallet_app/constants.dart';
 import 'package:my_wallet_app/models/category_model.dart';
 import 'package:my_wallet_app/models/expense_model.dart';
 
+import '../../helpers/date_format_helper.dart';
+
 part 'add_expense_state.dart';
 
 class AddExpenseCubit extends Cubit<AddExpenseState> {
@@ -17,7 +19,7 @@ class AddExpenseCubit extends Cubit<AddExpenseState> {
 
   Future<void> addExpense() async {
     date =
-        '${DateTime.now().year}-${DateTime.now().month}-${DateTime.now().day}';
+        '${DateTime.now().year}-${DateTime.now().month}-${DateFormatHelper.dayFormat(DateTime.now().day.toInt())}';
 
     emit(AddExpenseLoading());
     try {

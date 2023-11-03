@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ListItem extends StatelessWidget {
-  const ListItem({super.key, required this.itemBuilder});
+  const ListItem({super.key, required this.itemBuilder, required this.itemCount});
   final Widget? Function(BuildContext, int) itemBuilder;
+  final int itemCount;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class ListItem extends StatelessWidget {
           child: ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            itemCount: 4,
+            itemCount: itemCount,
             itemBuilder: itemBuilder,
           ),
         ),

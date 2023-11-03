@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_wallet_app/helpers/number_helper.dart';
 import 'package:my_wallet_app/models/expense_model.dart';
 
 import '../../constants.dart';
@@ -38,10 +39,12 @@ class ExpenseItem extends StatelessWidget {
           ),
         ),
         trailing: Text(
-          '${expense.price % 1 == 0 ? expense.price.toInt() : expense.price} DZD',
-          style: const TextStyle(
+          '${expense.category.isAsset ? '+${NumberHelper.removeZero(expense.price)}' : '-${NumberHelper.removeZero(expense.price)}'} DZD',
+          style: TextStyle(
             fontSize: 15,
-            color: kThemeColor,
+            color: expense.category.isAsset
+                ? Colors.greenAccent[400]
+                : const Color(0xfffa0303),
             fontWeight: FontWeight.w700,
           ),
         ),

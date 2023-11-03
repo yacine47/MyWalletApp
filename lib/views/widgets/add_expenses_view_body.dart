@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:my_wallet_app/constants.dart';
 import 'package:my_wallet_app/cubits/add_expense/add_expense_cubit.dart';
+import 'package:my_wallet_app/cubits/home_cubit/home_cubit.dart';
 import 'package:my_wallet_app/views/widgets/circle_background.dart';
 
 import 'custom_app_bar_views.dart';
@@ -28,6 +29,7 @@ class _AddExpensesViewBodyState extends State<AddExpensesViewBody> {
       listener: (context, state) {
         if (state is AddExpenseLoading) {
         } else if (state is AddExpenseSuccess) {
+          BlocProvider.of<HomeCubit>(context).displayItemWeekly();
           Navigator.pop(context);
         } else if (state is AddExpenseFailure) {
           debugPrint(state.errMsg);
